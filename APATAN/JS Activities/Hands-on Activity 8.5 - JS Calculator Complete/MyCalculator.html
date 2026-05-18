@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Calculator</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="body">
+  <div class="calcbody">
+    <div class="status-bar">
+      <span id="ind-m" class="indicator" title="Memory has a value">M</span>
+      <span id="ind-mc" class="indicator">MC</span>
+      <span id="ind-mr" class="indicator">MR</span>
+    </div>
+    <div class="screen-container">
+      <div id="history"></div>
+      <input type="text" id="display" readonly value="0">
+    </div>
+    <div class="buttons">
+      <input type="button" class="mem-btn" value="MC" onclick="memClear()">
+      <input type="button" class="mem-btn" value="MR" onclick="memRecall()">
+      <input type="button" class="mem-btn" value="M+" onclick="memAdd()">
+      <input type="button" class="mem-btn" value="M-" onclick="memSub()">
+      <input type="button" class="num-btn" value="7" onclick="appendNumber('7')">
+      <input type="button" class="num-btn" value="8" onclick="appendNumber('8')">
+      <input type="button" class="num-btn" value="9" onclick="appendNumber('9')">
+      <input type="button" class="op-btn" value="/" onclick="handleOperator('/')">
+      <input type="button" class="num-btn" value="4" onclick="appendNumber('4')">
+      <input type="button" class="num-btn" value="5" onclick="appendNumber('5')">
+      <input type="button" class="num-btn" value="6" onclick="appendNumber('6')">
+      <input type="button" class="op-btn" value="*" onclick="handleOperator('*')">
+      <input type="button" class="num-btn" value="1" onclick="appendNumber('1')">
+      <input type="button" class="num-btn" value="2" onclick="appendNumber('2')">
+      <input type="button" class="num-btn" value="3" onclick="appendNumber('3')">
+      <input type="button" class="op-btn" value="-" onclick="handleOperator('-')">
+      <input type="button" class="clear-btn" value="C" onclick="clearInput()">
+      <input type="button" class="num-btn" value="0" onclick="appendNumber('0')">
+      <input type="button" class="num-btn" value="." onclick="appendDecimal()">
+      <input type="button" class="op-btn" value="+" onclick="handleOperator('+')">
+      <input type="button" class="clear-btn btn-ac" value="AC" onclick="resetCalc()">
+      <input type="button" class="btn-eq op-eq" value="=" onclick="solve()">
+    </div>
+  </div>
+  <script src="CalculatorScript.js"></script>
+</body>
+</html>

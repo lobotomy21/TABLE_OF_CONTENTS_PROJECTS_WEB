@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rey II B. Apatan – Resume</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="resume-style.css">
+</head>
+<body>
+    <div id="OpeningOverlayer" class="overlay">
+        <button class="pill-btn abriha-btn" onclick="opensResume()">Abriha</button>
+    </div>
+
+    <div id="ResumeContainer" class="resume-page screen-hidden">
+        <div class="top-nav">
+            <button id="ThemeBUTTON" class="pill-btn" onclick="lightnessanddarknessing()">Light Mode</button>
+            <button class="pill-btn" onclick="Widening()">Itago</button>
+        </div>
+
+        <aside class="sidebar">
+            <div class="sidebar-name">
+                <span>REY II B. APATAN</span>
+            </div>
+        </aside>
+
+        <main class="main">
+            <section class="block">
+                <h2 class="block-title">[CONTACT]</h2>
+                <button class="hide-btn" onclick="HideandshowofSECTIONS(this)">Hide</button>
+                <div class="content-to-hide contact-list">
+                    <p>09954453352</p>
+                    <p>rey.apatan@cit.edu</p>
+                </div>
+            </section>
+
+            <section class="hero">
+                <div class="hero-photo">
+                    <img src="profilepic.jpg" alt="Rey II B. Apatan">
+                </div>
+                <div class="hero-text">
+                    <h1 class="role">BS INFORMATION TECHNOLOGY STUDENT</h1>
+                    <h2 class="name-inline">REY II B. APATAN</h2>
+                    <h3 class="subheading">[PROFILE]</h3>
+                    <p class="profile">
+                        A simple guy who likes to code and make something out from nothing. Curious and hands-on, always looking for the next thing to build, explore, and improve through technology.
+                    </p>
+                </div>
+            </section>
+
+            <section class="block">
+                <h2 class="block-title">[EXPERIENCE]</h2>
+                <button class="hide-btn" onclick="HideandshowofSECTIONS(this)">Hide</button>
+                <div class="content-to-hide entry">
+                    <div class="entry-main">
+                        <h3 class="entry-title">Parasat Cable TV, Inc.</h3>
+                        <p class="entry-subtitle">OJT Trainee</p>
+                    </div>
+                    <div class="entry-date">2025</div>
+                </div>
+            </section>
+
+            <section class="block">
+                <h2 class="block-title">[EDUCATION]</h2>
+                <button class="hide-btn" onclick="HideandshowofSECTIONS(this)">Hide</button>
+                <div class="content-to-hide">
+                    <div class="entry">
+                        <div class="entry-main">
+                            <h3 class="entry-title">Cebu Institute of Technology – University</h3>
+                            <p class="entry-subtitle">BS in Information Technology</p>
+                        </div>
+                        <div class="entry-date">2025 – 2026</div>
+                    </div>
+                    <div class="entry">
+                        <div class="entry-main">
+                            <h3 class="entry-title">Julio Ledesma National High School</h3>
+                            <p class="entry-subtitle">Senior High School</p>
+                        </div>
+                        <div class="entry-date">2023 – 2025</div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="two-col">
+                <section class="block">
+                    <h2 class="block-title">[SKILLS]</h2>
+                    <button class="hide-btn" onclick="HideandshowofSECTIONS(this)">Hide</button>
+                    <ul class="bullet-list content-to-hide">
+                        <li>Drawing – ★★★★☆</li>
+                        <li>C Programming – ★★★★★</li>
+                        <li>Leadership – ★★★★★</li>
+                        <li>Problem Solving – ★★★★★</li>
+                    </ul>
+                </section>
+
+                <section class="block">
+                    <h2 class="block-title">[CREDENTIALS]</h2>
+                    <div class="entry-compact">
+                        <div class="entry-date-small">2025</div>
+                        <div class="entry-text-small"><strong>Leadership Awardee</strong> – Radian Leader</div>
+                    </div>
+                    <div class="entry-compact">
+                        <div class="entry-date-small">2023 – 2025</div>
+                        <div class="entry-text-small"><strong>Back-to-back Radio Broadcaster Champion</strong> – Division Level</div>
+                    </div>
+                </section>
+            </div>
+
+            <section class="block">
+                <h2 class="block-title">[REFERENCES]</h2>
+                <button class="hide-btn" onclick="HideandshowofSECTIONS(this)">Hide</button>
+                <p class="profile content-to-hide">Available upon request.</p>
+            </section>
+        </main>
+    </div>
+
+    <script src="JS_4_resume.js"></script>
+</body>
+</html>

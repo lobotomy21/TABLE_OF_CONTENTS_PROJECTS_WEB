@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>APATAN — Table of Contents</title>
+  <style>
+    @font-face {
+      font-family: 'Dirtyline';
+      src: url('font_used/woff/Dirtyline 36daysoftype 2022.woff2') format('woff2'),
+           url('font_used/woff/Dirtyline 36daysoftype 2022.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #ffffff;
+      --surface: #f7f7f7;
+      --text: #111111;
+      --text-muted: #777777;
+      --border: #e0e0e0;
+      --border-hover: #111111;
+      --radius: 10px;
+    }
+
+    html { font-size: 16px; scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 2rem 1.5rem;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    /* ─── HEADER ─── */
+    header {
+      margin-bottom: 3rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 3px solid var(--text);
+    }
+
+    header h1 {
+      font-size: clamp(2.6rem, 8vw, 4.2rem);
+      font-weight: normal;
+      letter-spacing: 0.01em;
+      line-height: 1.05;
+      color: var(--text);
+      text-transform: uppercase;
+      word-break: break-word;
+    }
+
+    header h1 .light {
+      font-family: Georgia, "Times New Roman", Times, serif;
+      font-weight: normal;
+      font-style: italic;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      font-size: clamp(1.4rem, 4vw, 2.4rem);
+      display: block;
+    }
+
+    header h1 .heavy {
+      font-family: "Dirtyline", "Arial Black", Impact, sans-serif;
+      font-weight: normal;
+      display: block;
+      margin-top: -0.15em;
+    }
+
+    .subtitle {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1.5rem;
+      margin-top: 0.6rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+    }
+
+    .subtitle .count { color: var(--text); }
+
+    /* ─── FILTER BAR ─── */
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .filter-btn {
+      font-family: inherit;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 0.45rem 1rem;
+      border: 2px solid var(--border);
+      background: transparent;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .filter-btn:hover { border-color: var(--text); color: var(--text); }
+
+    .filter-btn.active {
+      background: var(--text);
+      color: var(--bg);
+      border-color: var(--text);
+    }
+
+    /* ─── CATEGORY SECTION ─── */
+    .category {
+      margin-bottom: 2.5rem;
+      opacity: 1;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .category.hidden { display: none; }
+
+    .category.faded {
+      opacity: 0.2;
+      transform: scale(0.97);
+      pointer-events: none;
+    }
+
+    .category-header {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .category-header .logo {
+      width: 22px;
+      height: 22px;
+      object-fit: contain;
+      flex-shrink: 0;
+      display: block;
+    }
+
+    .category-header h2 {
+      font-family: "Arial Black", "Franklin Gothic Heavy", Impact, sans-serif;
+      font-size: 1.1rem;
+      font-weight: 900;
+      letter-spacing: 0.04em;
+      line-height: 1.1;
+      text-transform: uppercase;
+      color: var(--text);
+    }
+
+    .category-header .badge {
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-left: auto;
+    }
+
+    /* ─── ACTIVITY LIST ─── */
+    .activity-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .activity-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.8rem 1rem;
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      text-decoration: none;
+      color: var(--text);
+      transition: all 0.15s ease;
+      cursor: pointer;
+    }
+
+    .activity-item:hover {
+      border-color: var(--border-hover);
+      background: #f0f0f0;
+      transform: translateX(3px);
+    }
+
+    .activity-item .arrow {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      flex-shrink: 0;
+      transition: color 0.15s ease;
+    }
+
+    .activity-item:hover .arrow { color: var(--text); }
+
+    .activity-item .name {
+      flex: 1;
+      font-size: 0.88rem;
+      font-weight: 500;
+      line-height: 1.4;
+    }
+
+    .activity-item .tag {
+      font-size: 0.6rem;
+      font-weight: 700;
+      padding: 0.15rem 0.45rem;
+      border: 1.5px solid var(--text);
+      letter-spacing: 0.05em;
+      flex-shrink: 0;
+      text-transform: uppercase;
+      color: var(--text);
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      margin-top: 4rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    footer .credit {
+      font-size: 0.68rem;
+      line-height: 1.5;
+    }
+
+    footer a {
+      color: var(--text);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.15s ease;
+    }
+
+    footer a:hover { border-color: var(--text); }
+
+    footer .top-link {
+      align-self: flex-end;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (min-width: 720px) {
+      body { padding: 3rem 2.5rem; }
+      .categories-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+      }
+      .category:last-child { grid-column: 1 / -1; }
+    }
+
+    @media (min-width: 960px) {
+      .categories-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+      .category:last-child { grid-column: auto; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <header>
+      <h1>
+        <span class="light">Table of</span>
+        <span class="heavy">Contents</span>
+      </h1>
+      <div class="subtitle">
+        <span><span class="count" id="totalCount">0</span> activities</span>
+        <span>APATAN</span>
+      </div>
+    </header>
+
+    <div class="filter-bar">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="html">HTML</button>
+      <button class="filter-btn" data-filter="css">CSS</button>
+      <button class="filter-btn" data-filter="js">JavaScript</button>
+    </div>
+
+    <div class="categories-grid" id="categories">
+
+      <!-- HTML ACTIVITIES -->
+      <section class="category" data-category="html">
+        <div class="category-header">
+          <img class="logo" src="logos/html_logo.png" alt="HTML logo" />
+          <h2>HTML</h2>
+          <span class="badge" id="htmlCount">0</span>
+        </div>
+        <ul class="activity-list" id="htmlList">
+          <li>
+            <a class="activity-item" href="APATAN/HTML Activities/Hands-on Activity 1 - Basic Tags/resume.html" target="_blank">
+              <span class="arrow">&rarr;</span>
+              <span class="name">Hands-on Activity 1 — Basic Tags</span>
+              <span class="tag">HTML</span>
+            </a>
+          </li>
+          <li>
+            <a class="activity-item" href="APATAN/HTML Activities/Hands-on Activity 2 - Wiki Website/index.html" target="_blank">
+              <span class="arrow">&rarr;</span>
+              <span class="name">Hands-on Activity 2 — Wiki Website</span>
+              <span class="tag">HTML</span>
+            </a>
+          </li>
+          <li>
+            <a class="activity-item" href="APATAN/HTML Activities/Hands-on Activity 3 - Recreating HTML designs/index.html" target="_blank">
+              <span class="arrow">&rarr;</span>
+              <span class="name">Hands-on Activity 3 — Recreating HTML Designs</span>
+              <span class="tag">HTML</span>
+            </a>
+          </li>
+        </ul>
+      </section>
+
+      <!-- CSS ACTIVITIES -->
+      <section class="category" data-category="css">
+        <div class="category-header">
+          <img class="logo" src="logos/css_logo.png" alt="CSS logo" />
+          <h2>CSS</h2>
+          <span class="badge" id="cssCount">0</span>
+        </div>
+        <ul class="activity-list" id="cssList">
+          <li>
+            <a class="activity-item" href="APATAN/CSS Activities/Hands-on Activity 5.1 - Resume (CSS)/resume.html" target="_blank">
+              <span class="arrow">&rarr;</span>
+              <span class="name">Hands-on Activity 5.1 — Resume (CSS)</span>
+              <span class="tag">CSS</span>
+            </a>
+          </li>
+          <li>
+            <a class="activity-item" href="APATAN/CSS Activities/Hands-on Activity 5.2 - Wiki Page (CSS)/index.html" target="_blank">
+              <span class="arrow">&rarr;</span>
+              <span class="name">Hands-on Activity 5.2 — Wiki Page (CSS)</span>
+              <span class="tag">CSS</span>
+            </a>
+          </li>
+          <li>
+            <a class="activity-item" href="APATAN/CSS Activities/Hands-on Activity 5.3 - Webpage Recreation (CSS)/webpage-recreate 1.html" target="_blank">
+              <span class="arrow">&rarr;</span>
+              <span class="name">Hands-on Activity 5.3 — Webpage Recreation (CSS)</span>
+              <span class="tag">CSS</span>
+            </a>
+          </li>
+          <li>
+            <a class="activity-item" href="APATAN/CSS Activities/Hands-on Activity 6 - Online Shopping/lazada 2 1.html" target="_blank">
+              <span class="arrow">&rarr;</span>
+              <span class="name">Hands-on Activity 6 — Online Shopping</span>
+              <span class="tag">CSS</span>
+            </a>
+          </li>
+        </ul>
+      </section>
+
+      <!-- JS ACTIVITIES -->
+      <section class="category" data-category="js">
+        <div class="category-header">
+          <img class="logo" src="logos/javascript_logo.png" alt="JavaScript logo" />
+          <h2>JavaScript</h2>
+          <span class="badge" id="jsCount">0</span>
+        </div>
+        <ul class="activity-list" id="jsList">
+          <li>
+            <a class="activity-item" href="APATAN/JS Activities/Hands-on Activity 7 - Basic Javascript/resume.html" target="_blank">
+              <span class="arrow">&rarr;</span>
+              <span class="name">Hands-on Activity 7 — Basic Javascript</span>
+              <span class="tag">JS</span>
+            </a>
+          </li>
+          <li>
+            <a class="activity-item" href="APATAN/JS Activities/Hands-on Activity 8 - Calculator v1/index.html" target="_blank">
+              <span class="arrow">&rarr;</span>
+              <span class="name">Hands-on Activity 8 — Calculator v1</span>
+              <span class="tag">JS</span>
+            </a>
+          </li>
+          <li>
+            <a class="activity-item" href="APATAN/JS Activities/Hands-on Activity 8.5 - JS Calculator Complete/MyCalculator.html" target="_blank">
+              <span class="arrow">&rarr;</span>
+              <span class="name">Hands-on Activity 8.5 — JS Calculator Complete</span>
+              <span class="tag">JS</span>
+            </a>
+          </li>
+        </ul>
+      </section>
+
+    </div>
+
+    <footer>
+      <div>
+        APATAN &middot; Activities Portfolio &middot; <a href="#" id="backToTop">Back to top</a>
+      </div>
+      <div class="credit">
+        Font "Dirtyline 36daysoftype 2022" used in this site is <strong>not mine</strong>. All rights belong to <a href="https://dirtylinestudio.com" target="_blank">Dirtyline Studio</a>.
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    (function() {
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const categories = document.querySelectorAll('.category');
+      const backToTop = document.getElementById('backToTop');
+
+      function updateCounts() {
+        const htmlCount = document.querySelectorAll('#htmlList .activity-item').length;
+        const cssCount = document.querySelectorAll('#cssList .activity-item').length;
+        const jsCount = document.querySelectorAll('#jsList .activity-item').length;
+        const total = htmlCount + cssCount + jsCount;
+
+        document.getElementById('htmlCount').textContent = htmlCount;
+        document.getElementById('cssCount').textContent = cssCount;
+        document.getElementById('jsCount').textContent = jsCount;
+        document.getElementById('totalCount').textContent = total;
+      }
+
+      function filterBy(category) {
+        filterBtns.forEach(btn => {
+          btn.classList.toggle('active', btn.dataset.filter === category);
+        });
+
+        categories.forEach(section => {
+          section.classList.remove('hidden', 'faded');
+          if (category === 'all') return;
+          if (section.dataset.category === category) return;
+          section.classList.add('faded');
+        });
+      }
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBy(btn.dataset.filter);
+        });
+      });
+
+      backToTop.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+      document.addEventListener('keydown', (e) => {
+        const filters = ['all', 'html', 'css', 'js'];
+        const idx = filters.indexOf(e.key);
+        if (idx !== -1) filterBy(filters[idx]);
+      });
+
+      updateCounts();
+    })();
+  </script>
+</body>
+</html>
